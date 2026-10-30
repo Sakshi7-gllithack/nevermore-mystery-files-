@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nevermore Mystery Files</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #100b0e;
+    color: #eee4df;
+    font-family: Georgia, serif;
+}
+
+/* HEADER */
+header {
+    padding: 25px 20px;
+    background: #1b1015;
+    border-bottom: 1px solid #64262d;
+    text-align: center;
+}
+
+header h1 {
+    color: #d6b9a8;
+    font-size: 27px;
+    letter-spacing: 3px;
+}
+
+header p {
+    color: #a88d87;
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    overflow-x: auto;
+    background: #190e13;
+    border-bottom: 1px solid #54232a;
+}
+
+nav button {
+    background: #28151c;
+    border: 1px solid #623039;
+    color: #d7c2ba;
+    padding: 11px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+nav button.active,
+nav button:hover {
+    background: #762b36;
+    color: white;
+}
+
+/* MAIN CONTENT */
+main {
+    max-width: 1050px;
+    margin: auto;
+    padding: 22px 16px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+h2 {
+    color: #d7b6a6;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.subtitle {
+    color: #a68b86;
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 13px;
+    margin: 20px 0;
+}
+
+.card {
+    background: #211319;
+    border: 1px solid #60303a;
+    border-radius: 9px;
+    padding: 17px;
+    margin-bottom: 14px;
+}
+
+.card h3 {
+    color: #d9b8a8;
+    margin-bottom: 10px;
+}
+
+.number {
+    color: #e47772;
+    font-size: 29px;
+    margin-top: 10px;
+}
+
+small, .muted {
+    color: #a68c87;
+}
+
+/* BUTTONS AND INPUTS */
+.btn {
+    background: #762d39;
+    color: white;
+    border: 1px solid #a34a50;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #9a3c48;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background: #160e12;
+    color: #eee4df;
+    border: 1px solid #63303a;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* EVIDENCE AND SUSPECTS */
+.tag {
+    display: inline-block;
+    background: #54232d;
+    color: #f0c9bd;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+.evidence-item, .suspect-item {
+    background: #25161d;
+    padding: 15px;
+    border-left: 3px solid #a13c48;
+    margin: 12px 0;
+    border-radius: 4px;
+}
+
+.evidence-item h3, .suspect-item h3 {
+    color: #e0c1b3;
+    margin-bottom: 7px;
+}
+
+/* TIMELINE */
+.timeline {
+    border-left: 2px solid #91404a;
+    margin: 20px 10px;
+    padding-left: 20px;
+}
+
+.event {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.event::before {
+    content: "";
+    position: absolute;
+    left: -27px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c45a5d;
+}
+
+.event strong {
+    color: #d9aaa0;
+}
+
+/* PROGRESS */
+.progress {
+    height: 10px;
+    background: #38232b;
+    border-radius: 10px;
+    margin: 12px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #a94751;
+    width: 0%;
+    transition: 0.3s;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.task input {
+    width: auto;
+    accent-color: #a94751;
+}
+
+.task.done span {
+    text-decoration: line-through;
+    color: #907b79;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #846e70;
+    border-top: 1px solid #54232a;
+    font-size: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>NEVERMORE</h1>
+    <p>✦ MYSTERY FILES • CLASSIFIED INVESTIGATIONS ✦</p>
+</header>
+
+<nav>
+    <button class="active" onclick="showPage('dashboard',this)">Dashboard</button>
+    <button onclick="showPage('evidence',this)">Evidence Board</button>
+    <button onclick="showPage('suspects',this)">Suspects</button>
+    <button onclick="showPage('timeline',this)">Timeline</button>
+    <button onclick="showPage('progress',this)">Progress</button>
+    <button onclick="showPage('team',this)">Team Room</button>
+</nav>
+
+<main>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
+
+    <h2>Welcome to the Investigation Room.</h2>
+    <p class="subtitle">
+        The truth is buried somewhere. Find it before someone else does.
+    </p>
+
+    <div class="card">
+        <span class="tag">ACTIVE CASE #001</span>
+        <h2 style="margin-top:15px">The Hyde Files</h2>
+        <p class="muted">
+            Strange incidents have been reported around Nevermore Academy.
+            A student has disappeared, and the evidence doesn't add up.
+        </p>
+        <p style="margin-top:12px">Status: <strong style="color:#e47772">Under Investigation</strong></p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <small>Evidence Collected</small>
+            <div class="number" id="evidenceCount">3</div>
+        </div>
+
+        <div class="card">
+            <small>Suspects Identified</small>
+            <div class="number">3</div>
+        </div>
+
+        <div class="card">
+            <small>Tasks Completed</small>
+            <div class="number" id="taskCount">1/4</div>
+        </div>
+
+        <div class="card">
+            <small>Team Members</small>
+            <div class="number">4</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Case Briefing</h3>
+        <p class="muted">
+            Something sinister is happening within the academy.
+            Collect clues, examine suspects, connect the evidence
+            and uncover the truth.
+        </p>
+        <button class="btn" onclick="showPage('evidence')">
+            Examine Evidence →
+        </button>
+    </div>
+
+</section>
+
+
+<!-- EVIDENCE BOARD -->
+<section id="evidence" class="page">
+
+    <h2>Evidence Board</h2>
+    <p class="subtitle">Every clue tells a story. Not every story tells the truth.</p>
+
+    <div class="card">
+        <h3>Add New Evidence</h3>
+        <input id="eTitle" placeholder="Evidence title">
+        <textarea id="eDesc" placeholder="Describe the discovered clue"></textarea>
+        <select id="eType">
+            <option>Physical Evidence</option>
+            <option>Witness Statement</option>
+            <option>Document</option>
+            <option>Photographic Evidence</option>
+        </select>
+        <button class="btn" onclick="addEvidence()">+ Add Evidence</button>
+    </div>
+
+    <div id="evidenceList">
+        <div class="evidence-item">
+            <h3>01. Torn Black Fabric</h3>
+            <p class="muted">Found near the forest entrance.</p>
+            <span class="tag">Physical Evidence</span>
+        </div>
+
+        <div class="evidence-item">
+            <h3>02. Anonymous Letter</h3>
+            <p class="muted">A threatening message discovered in the dormitory.</p>
+            <span class="tag">Document</span>
+        </div>
+
+        <div class="evidence-item">
+            <h3>03. Strange Footprints</h3>
+            <p class="muted">Unusual tracks found near the academy gates.</p>
+            <span class="tag">Physical Evidence</span>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- SUSPECTS -->
+<section id="suspects" class="page">
+
+    <h2>Suspect Profiles</h2>
+    <p class="subtitle">Trust is a luxury. Suspicion is a necessity.</p>
+
+    <div class="suspect-item">
+        <h3>01. Xavier Thorpe</h3>
+        <p class="muted">Status: Person of Interest</p>
+        <p>Possible connection to the mysterious forest incidents.</p>
+        <span class="tag">Suspicion: Medium</span>
+    </div>
+
+    <div class="suspect-item">
+        <h3>02. Tyler Galpin</h3>
+        <p class="muted">Status: Under Investigation</p>
+        <p>His behaviour raises questions about the recent attacks.</p>
+        <span class="tag">Suspicion: High</span>
+    </div>
+
+    <div class="suspect-item">
+        <h3>03. Unknown Individual</h3>
+        <p class="muted">Status: Identity Unknown</p>
+        <p>An unidentified figure reportedly seen near the forest.</p>
+        <span class="tag">Suspicion: Unknown</span>
+    </div>
+
+</section>
+
+
+<!-- TIMELINE -->
+<section id="timeline" class="page">
+
+    <h2>Case Timeline</h2>
+    <p class="subtitle">Reconstruct the events. Time never lies.</p>
+
+    <div class="timeline">
+
+        <div class="event">
+            <strong>08:00 PM — Monday</strong>
+            <p class="muted">A student reports unusual noises near the forest.</p>
+        </div>
+
+        <div class="event">
+            <strong>09:30 PM — Monday</strong>
+            <p class="muted">Strange footprints are discovered near the gates.</p>
+        </div>
+
+        <div class="event">
+            <strong>07:15 AM — Tuesday</strong>
+            <p class="muted">An anonymous letter is found in the dormitory.</p>
+        </div>
+
+        <div class="event">
+            <strong>10:00 AM — Tuesday</strong>
+            <p class="muted">The investigation officially begins.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INVESTIGATION PROGRESS -->
+<section id="progress" class="page">
+
+    <h2>Investigation Progress</h2>
+    <p class="subtitle">Every completed task brings us closer to the truth.</p>
+
+    <div class="card">
+        <h3>Current Investigation</h3>
+        <div id="progressText">25% Completed</div>
+        <div class="progress">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Investigation Checklist</h3>
+
+        <label class="task done">
+            <input type="checkbox" checked onchange="updateProgress()">
+            <span>Open the investigation</span>
+        </label>
+
+        <label class="task">
+            <input type="checkbox" onchange="updateProgress()">
+            <span>Collect physical evidence</span>
+        </label>
+
+        <label class="task">
+            <input type="checkbox" onchange="updateProgress()">
+            <span>Interrogate suspects</span>
+        </label>
+
+        <label class="task">
+            <input type="checkbox" onchange="updateProgress()">
+            <span>Identify the culprit</span>
+        </label>
+    </div>
+
+</section>
+
+
+<!-- TEAM COLLABORATION -->
+<section id="team" class="page">
+
+    <h2>Team Room</h2>
+    <p class="subtitle">No mystery is solved alone. Share your findings.</p>
+
+    <div class="card">
+        <h3>Investigation Team</h3>
+        <p>🕷 Wednesday Addams — Lead Investigator</p>
+        <p>🕯 Enid Sinclair — Evidence Researcher</p>
+        <p>🦇 Eugene Ottinger — Field Investigator</p>
+        <p>📜 Bianca Barclay — Case Analyst</p>
+    </div>
+
+    <div class="card">
+        <h3>Team Discussion</h3>
+        <div id="messages">
+            <p class="muted">Wednesday: Something about this case doesn't add up.</p>
+            <hr style="border-color:#60303a;margin:12px 0">
+            <p class="muted">Enid: I found something near the forest!</p>
+        </div>
+
+        <input id="memberName" placeholder="Your name">
+        <textarea id="messageInput" placeholder="Share an investigation update..."></textarea>
+        <button class="btn" onclick="sendMessage()">Send Message</button>
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    NEVERMORE ACADEMY • CLASSIFIED RECORDS
+    <p style="margin-top:8px">The truth is rarely pleasant.</p>
+</footer>
+
+
+<script>
+
+// NAVIGATION
+function showPage(pageId, button) {
+
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+
+    document.querySelectorAll('nav button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    if (button) {
+        button.classList.add('active');
+    } else {
+        document.querySelectorAll('nav button').forEach(btn => {
+            if (btn.getAttribute('onclick').includes(pageId)) {
+                btn.classList.add('active');
+            }
+        });
+    }
+}
+
+
+// ADD EVIDENCE
+function addEvidence() {
+
+    let title = document.getElementById('eTitle').value;
+    let desc = document.getElementById('eDesc').value;
+    let type = document.getElementById('eType').value;
+
+    if (title.trim() === '' || desc.trim() === '') {
+        alert('Please enter all evidence details.');
+        return;
+    }
+
+    let item = document.createElement('div');
+    item.className = 'evidence-item';
+
+    let heading = document.createElement('h3');
+    heading.textContent = title;
+
+    let description = document.createElement('p');
+    description.className = 'muted';
+    description.textContent = desc;
+
+    let tag = document.createElement('span');
+    tag.className = 'tag';
+    tag.textContent = type;
+
+    item.append(heading, description, tag);
+
+    document.getElementById('evidenceList').appendChild(item);
+
+    let count = document.querySelectorAll('.evidence-item').length;
+    document.getElementById('evidenceCount').textContent = count;
+
+    document.getElementById('eTitle').value = '';
+    document.getElementById('eDesc').value = '';
+}
+
+
+// UPDATE INVESTIGATION PROGRESS
+function updateProgress() {
+
+    let tasks = document.querySelectorAll('.task input');
+    let completed = document.querySelectorAll('.task input:checked').length;
+
+    let percentage = Math.round((completed / tasks.length) * 100);
+
+    document.getElementById('progressBar').style.width = percentage + '%';
+
+    document.getElementById('progressText').textContent =
+        percentage + '% Completed';
+
+    document.getElementById('taskCount').textContent =
+        completed + '/' + tasks.length;
+
+    document.querySelectorAll('.task').forEach(task => {
+        task.classList.toggle('done', task.querySelector('input').checked);
+    });
+}
+
+
+// TEAM DISCUSSION
+function sendMessage() {
+
+    let name = document.getElementById('memberName').value.trim();
+    let message = document.getElementById('messageInput').value.trim();
+
+    if (name === '' || message === '') {
+        alert('Please enter your name and message.');
+        return;
+    }
+
+    let newMessage = document.createElement('p');
+    newMessage.className = 'muted';
+
+    newMessage.textContent = name + ': ' + message;
+
+    let divider = document.createElement('hr');
+    divider.style.borderColor = '#60303a';
+    divider.style.margin = '12px 0';
+
+    let box = document.getElementById('messages');
+
+    box.append(divider, newMessage);
+
+    document.getElementById('messageInput').value = '';
+}
+
+
+// INITIAL PROGRESS
+updateProgress();
+
+</script>
+
+</body>
+</html>
+  
