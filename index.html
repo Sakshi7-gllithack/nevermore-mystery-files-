@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,230 +5,334 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nevermore Mystery Files</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #100d18;
-  --panel: #1b1626;
-  --panel2: #241d32;
-  --purple: #a78bfa;
-  --light: #eee8fa;
-  --muted: #aaa0ba;
-  --border: #403451;
-  --red: #d66b82;
-}
-
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--bg);
-  color: var(--light);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.6;
+  background: #100d18;
+  color: #eee6f7;
+  font-family: 'Poppins', sans-serif;
 }
 
 header {
-  padding: 35px 18px 25px;
+  min-height: 280px;
+  padding: 45px 20px;
   text-align: center;
-  background: linear-gradient(180deg, #241832, var(--bg));
-  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(#100b20aa, #100b20ee),
+    url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid #9b70c9;
 }
 
 header h1 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(25px, 6vw, 42px);
-  letter-spacing: 3px;
-  color: var(--purple);
+  font-size: clamp(28px, 6vw, 48px);
+  color: #e5caff;
+  text-shadow: 0 0 18px #a855f7;
+  margin-bottom: 12px;
 }
 
 header p {
-  color: var(--muted);
-  margin-top: 8px;
-  font-size: 13px;
+  color: #d3c1e8;
   letter-spacing: 2px;
 }
 
 nav {
   display: flex;
-  gap: 9px;
-  padding: 13px;
-  overflow-x: auto;
-  background: #171221;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 15px;
+  background: #1b1425;
+  border-bottom: 1px solid #49365d;
 }
 
 nav a {
-  color: var(--light);
+  color: #e5caff;
   text-decoration: none;
-  white-space: nowrap;
-  padding: 8px 13px;
-  border: 1px solid var(--border);
+  font-size: 13px;
+  padding: 8px 12px;
+  border: 1px solid #63458a;
   border-radius: 20px;
-  font-size: 12px;
 }
 
 nav a:hover {
-  background: var(--purple);
-  color: #171221;
+  background: #63458a;
+  box-shadow: 0 0 12px #a855f7;
 }
 
 main {
+  width: 92%;
   max-width: 1100px;
-  margin: auto;
-  padding: 22px 15px 50px;
+  margin: 25px auto;
 }
 
 section {
-  margin-bottom: 35px;
-  scroll-margin-top: 75px;
+  margin: 25px 0;
+  padding: 22px;
+  background: #1b1525;
+  border: 1px solid #49365d;
+  border-radius: 14px;
+  box-shadow: 0 0 18px #0005;
 }
 
-.section-title {
+h2 {
   font-family: 'Cinzel', serif;
-  color: var(--purple);
-  font-size: 23px;
-  margin-bottom: 7px;
-}
-
-.section-desc {
-  color: var(--muted);
-  font-size: 13px;
+  color: #d9b8ff;
   margin-bottom: 18px;
+  font-size: 23px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-  gap: 13px;
-}
-
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 17px;
-  box-shadow: 0 5px 20px #0003;
-}
-
-.card h3 {
+h3 {
   font-family: 'Cinzel', serif;
-  color: var(--purple);
-  font-size: 15px;
-  margin-bottom: 8px;
+  color: #d9b8ff;
 }
 
-.card p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.stat {
-  font-size: 30px;
-  color: var(--light);
-  font-weight: bold;
-}
-
-button, .button {
-  background: var(--purple);
-  color: #171221;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 7px;
-  font-weight: 600;
-  cursor: pointer;
-  margin: 5px 3px 5px 0;
-  font-family: inherit;
-}
-
-button:hover, .button:hover {
-  opacity: 0.85;
+p {
+  line-height: 1.6;
 }
 
 input, select, textarea {
   width: 100%;
-  background: #120f1b;
-  border: 1px solid var(--border);
-  border-radius: 7px;
   padding: 11px;
-  color: var(--light);
-  margin: 6px 0 12px;
+  margin: 7px 0 13px;
+  background: #100d18;
+  color: white;
+  border: 1px solid #63458a;
+  border-radius: 7px;
   font-family: inherit;
 }
 
 textarea {
-  min-height: 80px;
+  min-height: 85px;
   resize: vertical;
 }
 
-label {
-  font-size: 13px;
-  color: var(--muted);
+button {
+  padding: 10px 16px;
+  background: #67418a;
+  color: white;
+  border: 1px solid #b58ad8;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: inherit;
+  margin: 4px;
 }
 
-.form-box {
-  background: var(--panel2);
-  border: 1px solid var(--border);
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.item {
-  background: var(--panel2);
-  padding: 13px;
-  border-radius: 9px;
-  border-left: 3px solid var(--purple);
-  margin: 10px 0;
-  overflow-wrap: anywhere;
-}
-
-.item small {
-  color: var(--muted);
+button:hover {
+  background: #8958b5;
+  box-shadow: 0 0 12px #a855f7;
 }
 
 .danger {
-  background: var(--red);
+  background: #762c48;
+  border-color: #c65c83;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.stat-card {
+  background: #261c35;
+  border: 1px solid #75509a;
+  padding: 18px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 28px;
+  color: #e5caff;
+}
+
+.item {
+  background: #261c35;
+  border: 1px solid #63458a;
+  border-radius: 9px;
+  padding: 15px;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
 }
 
 .tag {
   display: inline-block;
-  background: #392b50;
-  color: #d8c8ff;
-  padding: 3px 9px;
+  background: #67418a;
+  color: white;
+  padding: 4px 9px;
   border-radius: 15px;
   font-size: 11px;
-  margin: 4px 3px 4px 0;
+  margin: 7px 0;
 }
 
 .empty {
-  color: var(--muted);
-  font-size: 13px;
+  color: #a99ab9;
   padding: 15px;
-  border: 1px dashed var(--border);
-  border-radius: 8px;
   text-align: center;
 }
+
+#evidence {
+  background:
+    radial-gradient(ellipse at center, #292039, #100d18 85%);
+  border: 1px solid #9b70c9;
+  box-shadow: 0 0 25px #9b5cff22;
+}
+
+#evidenceList {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 25px;
+  padding: 25px 8px;
+  background:
+    linear-gradient(#100b20bb, #100b20bb),
+    url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #49365d;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#evidenceList .item {
+  position: relative;
+  z-index: 1;
+  background: #e8dfce;
+  color: #211a29;
+  padding: 12px;
+  border: 2px solid #c5b6a1;
+  border-radius: 3px;
+  box-shadow: 3px 5px 12px #0009;
+  transform: rotate(-2deg);
+  transition: .25s;
+}
+
+#evidenceList .item:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+#evidenceList .item:hover {
+  transform: rotate(0deg) scale(1.04);
+  z-index: 3;
+  box-shadow: 0 0 18px #c084fc;
+}
+
+#evidenceList .item h3 {
+  color: #342342;
+  font-size: 14px;
+}
+
+#evidenceList .item p,
+#evidenceList .item small {
+  color: #51465a;
+}
+
+#evidenceList .item img {
+  width: 100%;
+  height: 125px;
+  object-fit: cover;
+  border: 3px solid white;
+  margin: 8px 0;
+}
+
+#evidenceList .tag {
+  background: #443054;
+}
+
+#evidenceList .item::before {
+  content: "●";
+  position: absolute;
+  top: -12px;
+  left: 45%;
+  color: #ff5e9c;
+  font-size: 19px;
+  text-shadow: 0 0 9px #ff5e9c;
+}
+  /* MANUAL DETECTIVE THREADING */
+
+#evidenceList {
+  position: relative;
+  isolation: isolate;
+}
+
+#evidenceList .item {
+  cursor: pointer;
+}
+
+#evidenceList .item.selected-evidence {
+  outline: 3px solid #ff4d9d;
+  box-shadow: 0 0 22px #ff4d9d;
+}
+
+.thread-controls {
+  margin: 15px 0;
+  padding: 15px;
+  background: #21172e;
+  border: 1px solid #9b70c9;
+  border-radius: 10px;
+}
+
+.thread-controls p {
+  margin-bottom: 10px;
+}
+
+.thread-controls button {
+  margin: 5px;
+}
+
+.thread-status {
+  color: #e5caff;
+  margin-top: 8px;
+}
+
+.thread-line {
+  stroke: #ff3d9a;
+  stroke-width: 3;
+  fill: none;
+  filter: drop-shadow(0 0 6px #ff3d9a);
+}
+
+.thread-line:nth-child(even) {
+  stroke: #a855f7;
+  filter: drop-shadow(0 0 6px #a855f7);
+}
+
+.thread-remove {
+  font-size: 11px;
+  padding: 5px 8px;
+  }
 
 footer {
   text-align: center;
-  padding: 25px 15px;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
-  font-size: 12px;
+  padding: 25px;
+  color: #a99ab9;
+  border-top: 1px solid #49365d;
+  margin-top: 35px;
 }
 
 @media (max-width: 500px) {
-  header { padding: 25px 12px; }
-  main { padding: 18px 12px; }
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  section {
+    padding: 15px;
+  }
+
+  nav {
+    gap: 7px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
 }
 </style>
 </head>
@@ -237,194 +340,169 @@ footer {
 <body>
 
 <header>
-  <h1>NEVERMORE</h1>
-  <p>✦ MYSTERY FILES · SUPERNATURAL INVESTIGATION ✦</p>
+  <h1>NEVERMORE MYSTERY FILES</h1>
+  <p>THE TRUTH IS BURIED IN THE DARK</p>
+  <p>CLASSIFIED SUPERNATURAL INVESTIGATION ARCHIVE</p>
 </header>
 
 <nav>
-  <a href="#dashboard">Control Room</a>
+  <a href="#control">Control Room</a>
   <a href="#evidence">Evidence Wall</a>
   <a href="#cases">Case Files</a>
   <a href="#team">Team Room</a>
-  <a href="#translator">Ghost Language</a>
+  <a href="#ghost">Ghost Language</a>
   <a href="#alliance">Alliance</a>
 </nav>
 
 <main>
- 
-<!-- MONSTER CONTROL ROOM -->
-<section id="dashboard">
-  <h2 class="section-title">Monster Control Room</h2>
-  <p class="section-desc">The supernatural activity monitoring centre.</p>
+  
+ <!-- MONSTER CONTROL ROOM -->
+<section id="control">
+  <h2>🕯 Monster Control Room</h2>
+  <p>Monitor supernatural evidence collected by the investigation team.</p>
 
-  <div class="grid">
-    <div class="card">
-      <h3>☠ Curses</h3>
-      <div class="stat" id="curseCount">0</div>
-      <p>Recorded curses</p>
+  <div class="card-grid">
+    <div class="stat-card">
+      <strong id="curseCount">0</strong>
+      Curses
     </div>
-    <div class="card">
-      <h3>👁 Creatures</h3>
-      <div class="stat" id="creatureCount">0</div>
-      <p>Identified creatures</p>
+    <div class="stat-card">
+      <strong id="creatureCount">0</strong>
+      Creatures
     </div>
-    <div class="card">
-      <h3>🏚 Haunted Locations</h3>
-      <div class="stat" id="locationCount">0</div>
-      <p>Suspicious locations</p>
+    <div class="stat-card">
+      <strong id="locationCount">0</strong>
+      Haunted Locations
     </div>
-    <div class="card">
-      <h3>⚡ Supernatural Activity</h3>
-      <div class="stat" id="activityCount">0</div>
-      <p>Unusual incidents</p>
+    <div class="stat-card">
+      <strong id="activityCount">0</strong>
+      Total Evidence
     </div>
   </div>
 </section>
 
 <!-- EVIDENCE WALL -->
 <section id="evidence">
-  <h2 class="section-title">Evidence Wall</h2>
-  <p class="section-desc">Collect clues, photographs and suspicious discoveries.</p>
+  <h2>🧷 Evidence Wall</h2>
+  <p>Every clue brings us closer to the truth.</p>
 
-  <div class="form-box">
-    <h3 class="card h3">Pin New Evidence</h3>
+  <form id="evidenceForm">
+    <label>Evidence Title</label>
+    <input id="evidenceTitle" placeholder="Enter clue title" required>
 
-    <label>Evidence title</label>
-    <input id="evidenceTitle" placeholder="Example: Strange footprints">
-
-    <label>Evidence category</label>
-    <select id="evidenceCategory">
-      <option value="Creature">Creature</option>
+    <label>Evidence Category</label>
+    <select id="evidenceCategory" required>
       <option value="Curse">Curse</option>
+      <option value="Creature">Creature</option>
       <option value="Haunted Location">Haunted Location</option>
-      <option value="Supernatural Activity">Supernatural Activity</option>
       <option value="Other">Other</option>
     </select>
 
-    <label>Clue or observation</label>
-    <textarea id="evidenceNote" placeholder="Describe what you discovered..."></textarea>
+    <label>Evidence Details</label>
+    <textarea id="evidenceNote" placeholder="Describe what you discovered..." required></textarea>
 
-    <label>Image URL (optional)</label>
-    <input id="evidenceImage" placeholder="Paste an image link">
+    <label>Image URL</label>
+    <input id="evidenceImage" placeholder="Paste an image URL (optional)">
 
-    <button onclick="addEvidence()">+ Pin Evidence</button>
+    <button type="submit">Pin Evidence</button>
+  </form>
+
+  <div id="evidenceList">
+    <div class="empty">No evidence collected yet.</div>
   </div>
-
-  <div id="evidenceList"></div>
 </section>
 
 <!-- CASE FILES -->
 <section id="cases">
-  <h2 class="section-title">Case Files</h2>
-  <p class="section-desc">Investigations must be completed one at a time.</p>
+  <h2>📁 Classified Case Files</h2>
+  <p>Open a case, investigate clues and record your findings.</p>
 
-  <div class="form-box">
-    <h3>Create a New Case</h3>
+  <form id="caseForm">
+    <label>Case Name</label>
+    <input id="caseName" placeholder="Enter case name" required>
 
-    <label>Case name</label>
-    <input id="caseTitle" placeholder="Example: The Midnight Visitor">
+    <label>Case Description</label>
+    <textarea id="caseDescription" placeholder="What happened?" required></textarea>
 
-    <label>Case description</label>
-    <textarea id="caseDescription" placeholder="What happened?"></textarea>
+    <button type="submit">Open New Case</button>
+  </form>
 
-    <button onclick="createCase()">+ Create Case</button>
+  <div id="activeCase"></div>
+
+  <h3>Archived Cases</h3>
+  <div id="archivedCases">
+    <div class="empty">No archived cases yet.</div>
   </div>
-
-  <div class="card">
-    <h3>Currently Active Case</h3>
-    <div id="activeCase" class="empty">No active case.</div>
-  </div>
-
-  <div class="card" style="margin-top:15px">
-    <h3>Archived Cases</h3>
-    <div id="archivedCases"></div>
-  </div>
-     </section>
- 
-<!-- TEAM ROOM -->
+  </section>
+  <!-- TEAM ROOM -->
 <section id="team">
-  <h2 class="section-title">Team Room</h2>
-  <p class="section-desc">Meet your fellow investigators and coordinate your mission.</p>
+  <h2>🦇 Team Room</h2>
+  <p>Every investigation needs a team.</p>
 
-  <div class="form-box">
-    <h3>Add Team Member</h3>
+  <form id="memberForm">
+    <label>Member Name</label>
+    <input id="memberName" placeholder="Enter member name" required>
 
-    <label>Member name</label>
-    <input id="memberName" placeholder="Investigator name">
-
-    <label>Role</label>
+    <label>Member Role</label>
     <select id="memberRole">
-      <option>Investigator</option>
-      <option>Researcher</option>
-      <option>Evidence Analyst</option>
-      <option>Team Leader</option>
+      <option value="Investigator">Investigator</option>
+      <option value="Researcher">Researcher</option>
+      <option value="Evidence Analyst">Evidence Analyst</option>
+      <option value="Team Leader">Team Leader</option>
     </select>
 
-    <label>Avatar image URL (optional)</label>
-    <input id="memberImage" placeholder="Paste image URL">
+    <label>Avatar Image URL</label>
+    <input id="memberImage" placeholder="Paste image URL (optional)">
 
-    <button onclick="addMember()">+ Add Member</button>
+    <button type="submit">Add Member</button>
+  </form>
+
+  <div id="teamList">
+    <div class="empty">No team members yet.</div>
   </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Team Members</h3>
-      <div id="memberList"></div>
-    </div>
+  <h3>Team Messages</h3>
+  <form id="messageForm">
+    <textarea id="teamMessage" placeholder="Share an investigation update..." required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 
-    <div class="card">
-      <h3>Mission Leadership</h3>
-      <label>Team leader</label>
-      <select id="leaderSelect" onchange="setLeader()"></select>
-
-      <label>Conclusion owner</label>
-      <select id="conclusionSelect" onchange="setConclusionOwner()"></select>
-    </div>
-  </div>
-
-  <div class="form-box" style="margin-top:15px">
-    <h3>Team Messages</h3>
-    <div id="messageList"></div>
-
-    <label>Write a message</label>
-    <textarea id="teamMessage" placeholder="Share an update with your team..."></textarea>
-
-    <button onclick="sendMessage()">Send Message</button>
+  <div id="messageList">
+    <div class="empty">No messages yet.</div>
   </div>
 </section>
 
 <!-- GHOST LANGUAGE -->
-<section id="translator">
-  <h2 class="section-title">Ghost Language</h2>
-  <p class="section-desc">Translate messages into a mysterious coded language and decode them again.</p>
+<section id="ghost">
+  <h2>👁 Ghost Language Translator</h2>
+  <p>Translate ordinary messages into mysterious symbols.</p>
 
-  <div class="form-box">
-    <label>Your message</label>
-    <textarea id="ghostInput" placeholder="Enter your message here..."></textarea>
+  <textarea id="ghostInput" placeholder="Write your secret message..."></textarea>
 
-    <button onclick="translateGhost()">Translate to Ghost Language</button>
-    <button onclick="decodeGhost()">Decode Message</button>
+  <button type="button" onclick="translateGhost()">Translate</button>
+  <button type="button" onclick="decodeGhost()">Decode</button>
 
-    <label>Translation result</label>
-    <textarea id="ghostOutput" readonly placeholder="Your translation will appear here..."></textarea>
-
-    <button onclick="copyGhost()">Copy Result</button>
+  <div class="item">
+    <h3>Translation</h3>
+    <p id="ghostOutput">Your translation will appear here.</p>
   </div>
 </section>
 
-<!-- KAPIDHWAJ ALLIANCE -->
+<!-- ALLIANCE / SPONSOR -->
 <section id="alliance">
-  <h2 class="section-title">Official Alliance</h2>
-  <p class="section-desc">Our mission partners and innovation supporters.</p>
+  <h2>⚜ Official Alliance</h2>
+  <p>
+    Every mystery needs innovation, creativity and collaboration.
+    This investigation is supported by:
+  </p>
 
-  <div class="card">
-    <h3>KAPIDHWAJ INNOVATIONS</h3>
-    <p>Supporting creativity, technology and innovation.</p>
-    <a class="button"
-       href="https://www.instagram.com/kapidhwaj.innovations/"
+  <div class="item">
+    <h3>KAPIDHWAJ Innovations</h3>
+    <p>Innovation meets imagination.</p>
+    <a href="https://www.instagram.com/kapidhwaj.innovations/"
        target="_blank"
-       rel="noopener noreferrer">
-       Visit Official Instagram
+       style="color:#d9b8ff;">
+      Visit Instagram
     </a>
   </div>
 </section>
@@ -433,66 +511,338 @@ footer {
 
 <footer>
   <p>NEVERMORE MYSTERY FILES</p>
-  <p>✦ The truth is hidden in the shadows. ✦</p>
+  <p>Some secrets should remain buried.</p>
+  <p>© 2026 | Classified Investigation Archive</p>
 </footer>
 
 <script>
- 
-// SAVE AND LOAD WEBSITE DATA
-let data = JSON.parse(localStorage.getItem("nevermoreData") || "{}");
+  // ================================
+// NEVERMORE MYSTERY FILES
+// ================================
 
-data.evidence = data.evidence || [];
-data.cases = data.cases || [];
-data.members = data.members || [];
-data.messages = data.messages || [];
-data.activeCase = data.activeCase || null;
-data.archivedCases = data.archivedCases || [];
+// SAVE AND LOAD DATA
+let data = JSON.parse(localStorage.getItem("nevermoreData")) || {
+  evidence: [],
+  cases: [],
+  members: [],
+  messages: []
+};
 
 function saveData() {
   localStorage.setItem("nevermoreData", JSON.stringify(data));
 }
 
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, function(char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char];
+  });
+}
+
+function safeImage(value) {
+  const url = String(value || "").trim();
+
+  if (/^https?:\/\/[^\s"'<>]+$/i.test(url)) {
+    return escapeHTML(url);
+  }
+
+  return "";
+}
+
+// ================================
 // EVIDENCE WALL
-function addEvidence() {
+// ================================
+
+document.getElementById("evidenceForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
   const title = document.getElementById("evidenceTitle").value.trim();
   const category = document.getElementById("evidenceCategory").value;
   const note = document.getElementById("evidenceNote").value.trim();
   const image = document.getElementById("evidenceImage").value.trim();
 
-  if (!title) {
-    alert("Please enter an evidence title.");
-    return;
-  }
+  if (!title || !note) return;
 
-  data.evidence.push({ title, category, note, image });
+data.evidence.push({
+  id: "evidence-" + Date.now() + "-" + Math.random(),
+  title: title,
+  category: category,
+  note: note,
+  image: image,
+  date: new Date().toLocaleDateString()
+});
+
   saveData();
-
-  document.getElementById("evidenceTitle").value = "";
-  document.getElementById("evidenceNote").value = "";
-  document.getElementById("evidenceImage").value = "";
-
   renderEvidence();
-  renderDashboard();
+  updateControlRoom();
+  this.reset();
+});
+
+// ================================
+// MANUAL EVIDENCE THREADING
+// ================================
+
+if (!data.threads) {
+  data.threads = [];
+}
+
+// Give older evidence cards IDs
+data.evidence.forEach((item, index) => {
+  if (!item.id) {
+    item.id = "evidence-" + index;
+  }
+});
+
+let selectedEvidenceId = null;
+
+function setupThreadControls() {
+  const list = document.getElementById("evidenceList");
+
+  if (document.getElementById("threadControls")) return;
+
+  list.insertAdjacentHTML("beforebegin", `
+    <div class="thread-controls" id="threadControls">
+      <h3>🧵 Connect the Clues</h3>
+      <p>Select one evidence card, then select another to connect them.</p>
+
+      <button type="button" onclick="cancelThreadSelection()">
+        Cancel Selection
+      </button>
+
+      <p class="thread-status" id="threadStatus">
+        Choose your first clue.
+      </p>
+
+      <h3>Connected Clues</h3>
+      <div id="threadList"></div>
+    </div>
+  `);
 }
 
 function renderEvidence() {
   const list = document.getElementById("evidenceList");
 
+  setupThreadControls();
+
   if (!data.evidence.length) {
     list.innerHTML = '<div class="empty">No evidence collected yet.</div>';
+    renderThreads();
     return;
   }
 
-  list.innerHTML = data.evidence.map((item, index) => {
+  list.innerHTML = `
+    <svg id="threadSvg"
+      style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible">
+    </svg>
+  ` + data.evidence.map((item, index) => {
+    const image = safeImage(item.image);
+    const selected = selectedEvidenceId === item.id
+      ? "selected-evidence" : "";
+
+    return `
+      <div class="item ${selected}"
+        data-evidence-id="${escapeHTML(item.id)}">
+
+        <h3>${escapeHTML(item.title)}</h3>
+
+        ${image ? `<img src="${image}" alt="Evidence">` : ""}
+
+        <span class="tag">${escapeHTML(item.category)}</span>
+
+        <p>${escapeHTML(item.note)}</p>
+
+        <small>Added: ${escapeHTML(item.date)}</small>
+
+        <br>
+
+        <button class="danger"
+          onclick="deleteEvidence(${index})">
+          Delete
+        </button>
+      </div>
+    `;
+  }).join("");
+
+  list.querySelectorAll(".item[data-evidence-id]").forEach(card => {
+    card.addEventListener("click", function(event) {
+      if (event.target.closest("button")) return;
+
+      selectEvidence(this.dataset.evidenceId);
+    });
+  });
+
+  renderThreads();
+  drawThreads();
+}
+
+function selectEvidence(id) {
+  if (selectedEvidenceId === null) {
+    selectedEvidenceId = id;
+
+    document.getElementById("threadStatus").textContent =
+      "First clue selected! Now choose another clue.";
+
+    renderEvidence();
+    return;
+  }
+
+  if (selectedEvidenceId === id) {
+    cancelThreadSelection();
+    return;
+  }
+
+  const alreadyConnected = data.threads.some(thread =>
+    (thread.from === selectedEvidenceId && thread.to === id) ||
+    (thread.from === id && thread.to === selectedEvidenceId)
+  );
+
+  if (alreadyConnected) {
+    selectedEvidenceId = null;
+
+    document.getElementById("threadStatus").textContent =
+      "These clues are already connected.";
+
+    renderEvidence();
+    return;
+  }
+
+  data.threads.push({
+    from: selectedEvidenceId,
+    to: id
+  });
+
+  selectedEvidenceId = null;
+
+  saveData();
+  renderEvidence();
+
+  document.getElementById("threadStatus").textContent =
+    "A new neon thread has been created!";
+}
+
+function cancelThreadSelection() {
+  selectedEvidenceId = null;
+
+  const status = document.getElementById("threadStatus");
+
+  if (status) {
+    status.textContent = "Choose your first clue.";
+  }
+
+  renderEvidence();
+}
+
+function renderThreads() {
+  const threadList = document.getElementById("threadList");
+
+  if (!threadList) return;
+
+  if (!data.threads.length) {
+    threadList.innerHTML =
+      '<p class="empty">No clues connected yet.</p>';
+    return;
+  }
+
+  threadList.innerHTML = data.threads.map((thread, index) => {
+    const first = data.evidence.find(item => item.id === thread.from);
+    const second = data.evidence.find(item => item.id === thread.to);
+
+    if (!first || !second) return "";
+
+    return `
+      <div class="item">
+        <p>
+          🧵 ${escapeHTML(first.title)}
+          ↔ ${escapeHTML(second.title)}
+        </p>
+
+        <button class="danger thread-remove"
+          onclick="removeThread(${index})">
+          Remove Thread
+        </button>
+      </div>
+    `;
+  }).join("");
+}
+
+function drawThreads() {
+  const svg = document.getElementById("threadSvg");
+  const list = document.getElementById("evidenceList");
+
+  if (!svg || !list) return;
+
+  const listRect = list.getBoundingClientRect();
+
+  svg.setAttribute("viewBox",
+    `0 0 ${list.clientWidth} ${list.clientHeight}`);
+
+  svg.innerHTML = "";
+
+  data.threads.forEach((thread, index) => {
+    const first = list.querySelector(
+      `[data-evidence-id="${CSS.escape(thread.from)}"]`
+    );
+
+    const second = list.querySelector(
+      `[data-evidence-id="${CSS.escape(thread.to)}"]`
+    );
+
+    if (!first || !second) return;
+
+    const a = first.getBoundingClientRect();
+    const b = second.getBoundingClientRect();
+
+    const x1 = a.left + a.width / 2 - listRect.left;
+    const y1 = a.top + a.height / 2 - listRect.top;
+
+    const x2 = b.left + b.width / 2 - listRect.left;
+    const y2 = b.top + b.height / 2 - listRect.top;
+
+    const line = document.createElementNS(
+      "http://www.w3.org/2000/svg", "line"
+    );
+
+    line.setAttribute("x1", x1);
+    line.setAttribute("y1", y1);
+    line.setAttribute("x2", x2);
+    line.setAttribute("y2", y2);
+    line.setAttribute("class", "thread-line");
+
+    svg.appendChild(line);
+  });
+}
+
+function removeThread(index) {
+  data.threads.splice(index, 1);
+
+  saveData();
+  renderEvidence();
+  }
+
+  list.innerHTML = `
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0">
+      <path d="M 15% 25% L 50% 50% L 85% 25%"
+        stroke="#ff3d9a" stroke-width="3" fill="none"
+        style="filter:drop-shadow(0 0 6px #ff3d9a)"/>
+      <path d="M 20% 80% L 50% 50% L 80% 80%"
+        stroke="#a855f7" stroke-width="3" fill="none"
+        style="filter:drop-shadow(0 0 7px #a855f7)"/>
+    </svg>
+  ` + data.evidence.map((item, index) => {
     const image = safeImage(item.image);
 
     return `
       <div class="item">
         <h3>${escapeHTML(item.title)}</h3>
+        ${image ? `<img src="${image}" alt="Evidence">` : ""}
         <span class="tag">${escapeHTML(item.category)}</span>
         <p>${escapeHTML(item.note)}</p>
-        ${image ? `<img src="${image}" alt="Evidence image" style="max-width:100%;max-height:220px;border-radius:8px;margin-top:10px">` : ""}
-        <br>
+        <small>Added: ${escapeHTML(item.date)}</small>
         <button class="danger" onclick="deleteEvidence(${index})">Delete</button>
       </div>
     `;
@@ -500,111 +850,170 @@ function renderEvidence() {
 }
 
 function deleteEvidence(index) {
-  if (!confirm("Delete this evidence?")) return;
+  if (!confirm("Delete this evidence and its connections?")) return;
+
+  const deletedId = data.evidence[index].id;
+
   data.evidence.splice(index, 1);
+
+  data.threads = data.threads.filter(thread =>
+    thread.from !== deletedId && thread.to !== deletedId
+  );
+
+  selectedEvidenceId = null;
+
   saveData();
   renderEvidence();
-  renderDashboard();
-}
+  updateControlRoom();
+  }
 
+// ================================
 // MONSTER CONTROL ROOM
-function renderDashboard() {
-  const categories = {
-    "Curse": "curseCount",
-    "Creature": "creatureCount",
-    "Haunted Location": "locationCount",
-    "Supernatural Activity": "activityCount"
-  };
+// ================================
 
-  Object.keys(categories).forEach(category => {
-    const count = data.evidence.filter(item => item.category === category).length;
-    document.getElementById(categories[category]).textContent = count;
-  });
+function updateControlRoom() {
+  document.getElementById("curseCount").textContent =
+    data.evidence.filter(item => item.category === "Curse").length;
+
+  document.getElementById("creatureCount").textContent =
+    data.evidence.filter(item => item.category === "Creature").length;
+
+  document.getElementById("locationCount").textContent =
+    data.evidence.filter(item => item.category === "Haunted Location").length;
+
+  document.getElementById("activityCount").textContent =
+    data.evidence.length;
 }
 
+// ================================
 // CASE FILES
-function createCase() {
-  const title = document.getElementById("caseTitle").value.trim();
+// ================================
+
+document.getElementById("caseForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (data.cases.some(item => item.status === "Active")) {
+    alert("Close the current active case before opening another one.");
+    return;
+  }
+
+  const name = document.getElementById("caseName").value.trim();
   const description = document.getElementById("caseDescription").value.trim();
 
-  if (!title) {
-    alert("Enter a case name.");
-    return;
-  }
+  if (!name || !description) return;
 
-  if (data.activeCase) {
-    alert("Close or archive the current case before opening another.");
-    return;
-  }
-
-  data.activeCase = { title, description };
-  data.cases.push(data.activeCase);
-
-  document.getElementById("caseTitle").value = "";
-  document.getElementById("caseDescription").value = "";
+  data.cases.push({
+    name: name,
+    description: description,
+    status: "Active",
+    date: new Date().toLocaleDateString()
+  });
 
   saveData();
   renderCases();
-}
-
-function closeCase() {
-  if (!data.activeCase) return;
-
-  if (!confirm("Close and archive this case?")) return;
-
-  data.archivedCases.push(data.activeCase);
-  data.activeCase = null;
-
-  saveData();
-  renderCases();
-}
+  this.reset();
+});
 
 function renderCases() {
   const active = document.getElementById("activeCase");
   const archived = document.getElementById("archivedCases");
 
-  if (data.activeCase) {
+  const activeCase = data.cases.find(item => item.status === "Active");
+
+  if (activeCase) {
+    const index = data.cases.indexOf(activeCase);
+
     active.innerHTML = `
-      <h3>${escapeHTML(data.activeCase.title)}</h3>
-      <p>${escapeHTML(data.activeCase.description)}</p>
-      <span class="tag">ACTIVE INVESTIGATION</span><br>
-      <button class="danger" onclick="closeCase()">Close and Archive Case</button>
+      <div class="item">
+        <span class="tag">ACTIVE CASE</span>
+        <h3>${escapeHTML(activeCase.name)}</h3>
+        <p>${escapeHTML(activeCase.description)}</p>
+        <small>Opened: ${escapeHTML(activeCase.date)}</small>
+        <br>
+        <button onclick="closeCase(${index})">Close Case</button>
+      </div>
     `;
   } else {
-    active.innerHTML = '<div class="empty">No active case. You may open a new investigation.</div>';
+    active.innerHTML = '<div class="empty">No active case. Open a new investigation.</div>';
   }
 
-  if (!data.archivedCases.length) {
-    archived.innerHTML = '<div class="empty">No archived cases.</div>';
-  } else {
-    archived.innerHTML = data.archivedCases.map(item => `
-      <div class="item">
-        <h3>${escapeHTML(item.title)}</h3>
-        <p>${escapeHTML(item.description)}</p>
-        <span class="tag">ARCHIVED</span>
-      </div>
-    `).join("");
-  }
+  const closedCases = data.cases
+    .map((item, index) => ({...item, originalIndex: index}))
+    .filter(item => item.status === "Closed");
+
+  archived.innerHTML = closedCases.length
+    ? closedCases.map(item => `
+        <div class="item">
+          <span class="tag">ARCHIVED</span>
+          <h3>${escapeHTML(item.name)}</h3>
+          <p>${escapeHTML(item.description)}</p>
+          <button class="danger" onclick="deleteCase(${item.originalIndex})">Delete</button>
+        </div>
+      `).join("")
+    : '<div class="empty">No archived cases yet.</div>';
 }
 
+function closeCase(index) {
+  if (!confirm("Close this investigation?")) return;
+
+  data.cases[index].status = "Closed";
+  saveData();
+  renderCases();
+}
+
+function deleteCase(index) {
+  if (!confirm("Delete this case permanently?")) return;
+
+  data.cases.splice(index, 1);
+  saveData();
+  renderCases();
+}
+
+// ================================
 // TEAM ROOM
-function addMember() {
+// ================================
+
+document.getElementById("memberForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
   const name = document.getElementById("memberName").value.trim();
   const role = document.getElementById("memberRole").value;
   const image = document.getElementById("memberImage").value.trim();
 
-  if (!name) {
-    alert("Enter a member name.");
-    return;
-  }
+  if (!name) return;
 
-  data.members.push({ name, role, image });
-
-  document.getElementById("memberName").value = "";
-  document.getElementById("memberImage").value = "";
+  data.members.push({
+    name: name,
+    role: role,
+    image: image
+  });
 
   saveData();
   renderTeam();
+  this.reset();
+});
+
+function renderTeam() {
+  const list = document.getElementById("teamList");
+
+  if (!data.members.length) {
+    list.innerHTML = '<div class="empty">No team members yet.</div>';
+    return;
+  }
+
+  list.innerHTML = data.members.map((member, index) => {
+    const image = safeImage(member.image);
+
+    return `
+      <div class="item">
+        ${image ? `<img src="${image}" alt="Member avatar" style="width:65px;height:65px;object-fit:cover;border-radius:50%">` : ""}
+        <h3>${escapeHTML(member.name)}</h3>
+        <span class="tag">${escapeHTML(member.role)}</span>
+        <br>
+        <button class="danger" onclick="deleteMember(${index})">Remove Member</button>
+      </div>
+    `;
+  }).join("");
 }
 
 function deleteMember(index) {
@@ -615,167 +1024,105 @@ function deleteMember(index) {
   renderTeam();
 }
 
-function setLeader() {
-  data.leader = document.getElementById("leaderSelect").value;
-  saveData();
-  renderTeam();
-}
+// ================================
+// TEAM MESSAGES
+// ================================
 
-function setConclusionOwner() {
-  data.conclusionOwner = document.getElementById("conclusionSelect").value;
-  saveData();
-  renderTeam();
-}
+document.getElementById("messageForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-function renderTeam() {
-  const list = document.getElementById("memberList");
-  const leader = document.getElementById("leaderSelect");
-  const owner = document.getElementById("conclusionSelect");
-
-  if (!data.members.length) {
-    list.innerHTML = '<div class="empty">No team members added yet.</div>';
-  } else {
-    list.innerHTML = data.members.map((member, index) => `
-      <div class="item">
-        ${safeImage(member.image) ? `<img src="${safeImage(member.image)}" alt="Avatar" style="width:45px;height:45px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:8px">` : ""}
-        <strong>${escapeHTML(member.name)}</strong>
-        <span class="tag">${escapeHTML(member.role)}</span>
-        <button class="danger" onclick="deleteMember(${index})">Remove</button>
-      </div>
-    `).join("");
-  }
-
-  const options = data.members.map((member, index) =>
-    `<option value="${index}">${escapeHTML(member.name)}</option>`
-  ).join("");
-
-  leader.innerHTML = '<option value="">Select leader</option>' + options;
-  owner.innerHTML = '<option value="">Select owner</option>' + options;
-
-  leader.value = data.leader ?? "";
-  owner.value = data.conclusionOwner ?? "";
-}
-
-function sendMessage() {
   const message = document.getElementById("teamMessage").value.trim();
 
-  if (!message) {
-    alert("Write a message first.");
-    return;
-  }
+  if (!message) return;
 
-  data.messages.push(message);
-  document.getElementById("teamMessage").value = "";
+  data.messages.push({
+    text: message,
+    date: new Date().toLocaleString()
+  });
 
   saveData();
   renderMessages();
-}
+  this.reset();
+});
 
 function renderMessages() {
   const list = document.getElementById("messageList");
 
   if (!data.messages.length) {
-    list.innerHTML = '<div class="empty">No team messages yet.</div>';
+    list.innerHTML = '<div class="empty">No messages yet.</div>';
     return;
   }
 
-  list.innerHTML = data.messages.map(message => `
-    <div class="item">${escapeHTML(message)}</div>
+  list.innerHTML = data.messages.map((message, index) => `
+    <div class="item">
+      <p>${escapeHTML(message.text)}</p>
+      <small>${escapeHTML(message.date)}</small>
+      <br>
+      <button class="danger" onclick="deleteMessage(${index})">Delete Message</button>
+    </div>
   `).join("");
 }
 
-// GHOST LANGUAGE TRANSLATOR
-const ghostAlphabet = {
-  a: "𖤐", b: "𖦹", c: "𖣔", d: "𖠋",
-  e: "𖥔", f: "𖤍", g: "𖦏", h: "𖧷",
-  i: "𖡼", j: "𖥂", k: "𖤣", l: "𖦪",
-  m: "𖧧", n: "𖨆", o: "𖣘", p: "𖤓",
-  q: "𖦹𖤐", r: "𖧷𖥔", s: "𖣔𖠋",
-  t: "𖤍𖦏", u: "𖡼𖥂", v: "𖤣𖦪",
-  w: "𖧧𖨆", x: "𖣘𖤓", y: "𖥔𖤐",
-  z: "𖠋𖧷"
-};
-
-function translateGhost() {
-  const input = document.getElementById("ghostInput").value.toLowerCase();
-
-  const output = [...input].map(char => {
-    if (char === " ") return "/";
-    return ghostAlphabet[char] || char;
-  }).join(" ");
-
-  document.getElementById("ghostOutput").value = output;
-}
-
-function decodeGhost() {
-  const input = document.getElementById("ghostOutput").value;
-  const reverse = Object.fromEntries(
-    Object.entries(ghostAlphabet).map(([key, value]) => [value, key])
-  );
-
-  const output = input.split(" / ").map(word =>
-    word.split(" ").map(code => reverse[code] || code).join("")
-  ).join(" ");
-
-  document.getElementById("ghostOutput").value = output;
-}
-
-function copyGhost() {
-  const output = document.getElementById("ghostOutput");
-
-  if (!output.value) {
-    alert("Nothing to copy yet.");
-    return;
-  }
-
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(output.value)
-      .then(() => alert("Copied!"))
-      .catch(() => fallbackCopy(output));
-  } else {
-    fallbackCopy(output);
-  }
-}
-
-function fallbackCopy(element) {
-  element.select();
-  document.execCommand("copy");
-  alert("Copied!");
-}
-
-// HELPER FUNCTIONS
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
-
-function safeImage(url) {
-  try {
-    const parsed = new URL(url);
-    return ["http:", "https:"].includes(parsed.protocol) ? parsed.href : "";
-  } catch {
-    return "";
-  }
-}
-
-// INITIALISE WEBSITE
-function initialiseWebsite() {
-  renderDashboard();
-  renderEvidence();
-  renderCases();
-  renderTeam();
+function deleteMessage(index) {
+  data.messages.splice(index, 1);
+  saveData();
   renderMessages();
 }
 
-initialiseWebsite();
-</script>
+// ================================
+// GHOST LANGUAGE TRANSLATOR
+// ================================
 
+const ghostAlphabet = {
+  A: "ᚨ", B: "ᛒ", C: "ᚲ", D: "ᛞ",
+  E: "ᛖ", F: "ᚠ", G: "ᚷ", H: "ᚺ",
+  I: "ᛁ", J: "ᛃ", K: "ᚴ", L: "ᛚ",
+  M: "ᛗ", N: "ᚾ", O: "ᛟ", P: "ᛈ",
+  Q: "ᛩ", R: "ᚱ", S: "ᛊ", T: "ᛏ",
+  U: "ᚢ", V: "ᚡ", W: "ᚹ", X: "ᛪ",
+  Y: "ᛦ", Z: "ᛉ"
+};
+
+const reverseGhostAlphabet = {};
+
+Object.keys(ghostAlphabet).forEach(letter => {
+  reverseGhostAlphabet[ghostAlphabet[letter]] = letter;
+});
+
+function translateGhost() {
+  const input = document.getElementById("ghostInput").value.toUpperCase();
+
+  const output = Array.from(input).map(char => {
+    return ghostAlphabet[char] || char;
+  }).join("");
+
+  document.getElementById("ghostOutput").textContent =
+    output || "Write something first.";
+}
+
+function decodeGhost() {
+  const input = document.getElementById("ghostInput").value;
+
+  const output = Array.from(input).map(char => {
+    return reverseGhostAlphabet[char] || char;
+  }).join("");
+
+  document.getElementById("ghostOutput").textContent =
+    output || "Write something first.";
+}
+
+// ================================
+// LOAD SAVED DATA
+// ================================
+
+renderEvidence();
+updateControlRoom();
+renderCases();
+renderTeam();
+renderMessages();
+
+  // Redraw threads when the screen size changes
+window.addEventListener("resize", drawThreads);
+</script>
 </body>
 </html>
- 
- 
