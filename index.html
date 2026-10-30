@@ -824,31 +824,6 @@ function removeThread(index) {
   renderEvidence();
   }
 
-  list.innerHTML = `
-    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0">
-      <path d="M 15% 25% L 50% 50% L 85% 25%"
-        stroke="#ff3d9a" stroke-width="3" fill="none"
-        style="filter:drop-shadow(0 0 6px #ff3d9a)"/>
-      <path d="M 20% 80% L 50% 50% L 80% 80%"
-        stroke="#a855f7" stroke-width="3" fill="none"
-        style="filter:drop-shadow(0 0 7px #a855f7)"/>
-    </svg>
-  ` + data.evidence.map((item, index) => {
-    const image = safeImage(item.image);
-
-    return `
-      <div class="item">
-        <h3>${escapeHTML(item.title)}</h3>
-        ${image ? `<img src="${image}" alt="Evidence">` : ""}
-        <span class="tag">${escapeHTML(item.category)}</span>
-        <p>${escapeHTML(item.note)}</p>
-        <small>Added: ${escapeHTML(item.date)}</small>
-        <button class="danger" onclick="deleteEvidence(${index})">Delete</button>
-      </div>
-    `;
-  }).join("");
-}
-
 function deleteEvidence(index) {
   if (!confirm("Delete this evidence and its connections?")) return;
 
